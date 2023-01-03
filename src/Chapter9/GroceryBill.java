@@ -62,4 +62,7 @@ public class GroceryBill {
     public String discountToString() {
         return receiptToString() + "\nsub-total: " + valueToString(total) + "\ndiscount: " + valueToString(internalDiscount) + "\ntotal: " + valueToString(total - internalDiscount);
     }
+
+
+
 }
