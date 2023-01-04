@@ -1,4 +1,4 @@
-package Chapter9;/*
+package Chapter9a;/*
  * W.P. Iverson, January 2023
  * copied from https://practiceit.cs.washington.edu/problems/bjp5/chapter9/GroceryBill.java
  * so we can work Exercise BJP5 Exercise 9.10: Chapter9.DiscountBill

@@ -1,4 +1,4 @@
-package Chapter9;
+package Chapter9a;
 
 // A class to represent employees in general.
 // Practice-IT Chapter9.Employee Class, changed a little by Iverson

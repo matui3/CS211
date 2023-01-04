@@ -1,4 +1,4 @@
-package Chapter9;
+package Chapter9a;
 
 /*
  * W.P. Iverson, January 2023
@@ -26,7 +26,7 @@ public class Exercise9_10 {
 		test2.add(new Item("apple", 0.3, 0.05));
 		test2.add(new Item("orange", 0.3, 0.05));
 		test2.add(new Item("newspaper", 0.99, 0.0));
-		//System.out.println(test2.discountToString());
+//		System.out.println(test2.discountToString());
 		System.out.println(test2); // .toString() is THE JAVA standard
 		System.out.println("getTotal(): "+test2.getTotal());
 	}

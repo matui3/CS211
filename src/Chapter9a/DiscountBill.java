@@ -1,12 +1,12 @@
-package Chapter9;
+package Chapter9a;
 public class DiscountBill extends GroceryBill {
 
     private int discountedItems;
     private double totalDiscount;
     private boolean preferred;
 
-    public DiscountBill(Employee clerk) {
-        super(clerk);
+    public DiscountBill() {
+        this(new Employee(), false);
     }
 
     public DiscountBill(Employee clerk, boolean preferred) {
