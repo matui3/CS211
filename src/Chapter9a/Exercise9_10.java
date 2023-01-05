@@ -58,6 +58,8 @@ public class Exercise9_10 {
 
 		Employee e = new Employee();
 		System.out.println(e);
+
+		DiscountBill test5 = new DiscountBill();
 	}
 
 }

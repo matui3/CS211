@@ -15,7 +15,7 @@ public class DiscountBill extends GroceryBill {
     }
 
     public DiscountBill(boolean preferred) {
-        super(new Employee("no name provided"));
+        super(new Employee(""));
         this.preferred = preferred;
     }
 
