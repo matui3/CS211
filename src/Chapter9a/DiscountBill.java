@@ -11,7 +11,7 @@ public class DiscountBill extends GroceryBill {
     private boolean preferred;
 
     public DiscountBill() {
-        this(new Employee("no name provided"), false);
+        this(new Employee(""), false);
     }
 
     public DiscountBill(boolean preferred) {

@@ -54,6 +54,7 @@ public class Exercise9_10 {
 		System.out.println(test4);
 
 		GroceryBill bill = new GroceryBill(new Employee());
+		System.out.println(bill);
 
 		Employee e = new Employee();
 		System.out.println(e);
