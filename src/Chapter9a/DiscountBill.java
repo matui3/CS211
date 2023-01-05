@@ -56,9 +56,6 @@ public class DiscountBill extends GroceryBill {
     // returns discount amount based on preferred or not.
     @Override
     public double getTotal() {
-        if (preferred) {
-            return super.getTotal() - totalDiscount;
-        }
-        return super.getTotal();
+        return super.getTotal() - totalDiscount;
     }
 }
