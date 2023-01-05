@@ -34,8 +34,29 @@ public class Exercise9_10 {
 		test2.add(new Item("orange", 0.3, 0.05));
 		test2.add(new Item("newspaper", 0.99, 0.0));
 		System.out.println(test2.discountToString());
+		System.out.println("Discounted # of items: " + test2.getDiscountCount());
+		System.out.println("Total amount of discount: " + test2.getDiscountAmount());
+		System.out.println(0.25+0.5+0.05+0.05+0.0);
 		System.out.println(test2); // .toString() is THE JAVA standard
 		System.out.println("getTotal(): "+test2.getTotal());
+
+		DiscountBill test3 = new DiscountBill();
+		test3.add(new Item("candy bar", 1.35, 0.25));
+		test3.add(new Item("toy car", 3.25, 0.5));
+		test3.add(new Item("apple", 0.3, 0.05));
+		test3.add(new Item("orange", 0.3, 0.05));
+		test3.add(new Item("newspaper", 0.99, 0.0));
+		System.out.println("clerk: " + test3.getClerk());
+		System.out.println(test3);
+
+		DiscountBill test4 = new DiscountBill(true);
+		System.out.println(test4.getClerk());
+		System.out.println(test4);
+
+		GroceryBill bill = new GroceryBill(new Employee());
+
+		Employee e = new Employee();
+		System.out.println(e);
 	}
 
 }
