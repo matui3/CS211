@@ -1,4 +1,9 @@
 package Chapter9a;
+
+// Jon Formantes
+// CS 211
+// Winter 2023 - 1/4/2023
+// Discount bill class contains 3 methods of get discount items, discount amount, and percent of discount from total price. Overrides get total and add method.
 public class DiscountBill extends GroceryBill {
 
     private int discountedItems;
@@ -12,7 +17,6 @@ public class DiscountBill extends GroceryBill {
     public DiscountBill(Employee clerk, boolean preferred) {
         super(clerk);
         this.preferred = preferred;
-
     }
 
     public int getDiscountCount() {
@@ -38,10 +42,9 @@ public class DiscountBill extends GroceryBill {
 
     @Override
     public double getTotal() {
-        double total = super.getTotal();
         if (preferred) {
-            total = super.getTotal() - totalDiscount;
+            return super.getTotal() - totalDiscount;
         }
-        return total;
+        return super.getTotal();
     }
 }
