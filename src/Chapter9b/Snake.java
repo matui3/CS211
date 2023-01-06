@@ -16,7 +16,7 @@ public class Snake implements Animal {
 
     public Snake() {
         super();
-        east = true;
+        east = false;
         south = true;
     }
 
@@ -25,16 +25,15 @@ public class Snake implements Animal {
     }
     @Override
     public int getMove() {
+        if (currentDistance == moveDistance) {
+            east = !east;
+            south = true;
+            currentDistance = 0;
+        }
         if (south) {
             moveDistance++;
             south = false;
             return SOUTH;
-        }
-
-        if (currentDistance > moveDistance) {
-            east = !east;
-            south = true;
-            currentDistance = 0;
         }
         currentDistance++;
         if (east) {
