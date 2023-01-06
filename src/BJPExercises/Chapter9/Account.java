@@ -1,4 +1,4 @@
-package BJPExercises;
+package BJPExercises.Chapter9;
 
 public class Account {
     public boolean __processCalled;
