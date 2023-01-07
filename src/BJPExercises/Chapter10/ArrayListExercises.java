@@ -18,14 +18,13 @@ public class ArrayListExercises {
             listB.add(num);
         }
 
-        interLeave(listA, listB);
+        interLeave(listB, listA);
 
-        System.out.println(listA);
+        System.out.println(listB);
 
     }
 
     public static void removeInRange(ArrayList<Integer> list, int val, int start, int end) {
-        int length = list.size();
         for (int i = start; i < end; i++) {
             if (list.get(i) == val) {
                 list.remove(i);
@@ -104,15 +103,15 @@ public class ArrayListExercises {
 
     public static void interLeave(ArrayList<Integer> a1, ArrayList<Integer> a2) {
         int j = 0;
+        int length = a1.size();
         for (int i = 0; i < a2.size(); i++) {
             int num = a2.get(i);
-            if (j + 1 < a1.size() - 1) {
+            if (i < length) {
                 a1.add(j+1, num);
                 j+=2;
             } else {
                 a1.add(num);
             }
-
 
         }
     }
