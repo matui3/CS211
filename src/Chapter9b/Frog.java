@@ -19,7 +19,6 @@ public class Frog implements Animal {
         super();
         rand = new Random();
     }
-
     // Get move, moves 3 steps in a random direction before switching
     @Override
     public int getMove() {

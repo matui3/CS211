@@ -17,7 +17,6 @@ public class Snake implements Animal {
         east = false;
         south = true;
     }
-
     // string representation of snake
     public String toString() {
         return "S";
