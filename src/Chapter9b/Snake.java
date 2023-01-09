@@ -1,4 +1,7 @@
-package Chapter9b;
+// Jon Formantes
+// CS 211
+// Winter 2023 - 1/9/2023
+// Snake class, contains multiple fields for toggling direction and two ints to determine the current step as each distance increases
 
 import java.awt.*;
 

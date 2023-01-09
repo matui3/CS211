@@ -1,11 +1,9 @@
-package Chapter9b;
-
 import java.awt.*;
 import java.util.Random;
 
 // Jon Formantes
 // CS 211
-// Winter 2023 - 1/4/2023
+// Winter 2023 - 1/9/2023
 // Frog class, contains a field for choice (determine direction), step for # of num of moves, and rand for new choice.
 public class Frog implements Animal {
 
