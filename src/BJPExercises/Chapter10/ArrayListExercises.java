@@ -115,4 +115,11 @@ public class ArrayListExercises {
 
         }
     }
+
+    public static void mirror(ArrayList<String> list) {
+        int length = list.size();
+        for (int i = length-1; i > -1; i--) {
+            list.add(list.get(i));
+        }
+    }
 }
