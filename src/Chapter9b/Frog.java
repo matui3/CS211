@@ -1,3 +1,5 @@
+package Chapter9b;
+
 import java.awt.*;
 import java.util.Random;
 
