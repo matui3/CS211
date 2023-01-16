@@ -1,4 +1,4 @@
-package NonHWorBJPExercises.Chapter9;
+package NotHomework.Chapter9;
 
 public class main {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package NonHWorBJPExercises.Chapter9;
+package NotHomework.Chapter9;
 
 public class FilteredAccount extends Account {
 

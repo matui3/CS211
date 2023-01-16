@@ -1,4 +1,4 @@
-package NonHWorBJPExercises.Chapter10;
+package NotHomework.Chapter10;
 
 import Homework.Chapter10.CalendarDate;
 
