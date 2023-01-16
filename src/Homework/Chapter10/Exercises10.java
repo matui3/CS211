@@ -2,6 +2,11 @@ package Homework.Chapter10;
 
 import java.util.*;
 
+// Jon Formantes
+// CS 211
+// Winter 2023 - 1/16/2023
+// ArrayList BJP Exercises from Practice-it. Contains multiple methods manipulating ArrayLists
+
 public class Exercises10 {
     public static void main(String[] alot587) {
 
@@ -54,6 +59,7 @@ public class Exercises10 {
 
     }
 
+    // Swaps pairs of values in an ArrayList, if odd, last one is not moved
     public static void swapPairs(ArrayList<String> list) {
         int length = 0;
         if (list.size() % 2 == 0) {
@@ -68,6 +74,7 @@ public class Exercises10 {
         }
     }
 
+    // removes all occurrences of a value from start index to end index in arraylist
     public static void removeInRange(ArrayList<Integer> list, int val, int start, int end) {
         for (int i = start; i < end; i++) {
             if (list.get(i) == val) {
@@ -78,6 +85,30 @@ public class Exercises10 {
         }
     }
 
+    // scans arraylist and removes smallest value and then moves it to front
+    public static void minToFront(ArrayList<Integer> list) {
+        int min = list.get(0);
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i) < min) {
+                min = list.get(i);
+            }
+        }
+        list.remove((Integer) min);
+        list.add(0, min);
+    }
+
+    // removes duplicate values from an ArrayList (values are placed next to each other), uses calendarDate
+    public static void removeDuplicates(ArrayList<CalendarDate> list) {
+        CalendarDate test = new CalendarDate();
+        for (int i = 0; i < list.size() - 1; i++) {
+            if (test.compare(list.get(i), list.get(i + 1)) == 0) {
+                list.remove(i);
+                i--;
+            }
+        }
+    }
+
+    // inserts k copies of a string value
     public static void stutter(ArrayList<String> list, int k) {
         if (k <= 0) {
             list.clear();
@@ -90,6 +121,7 @@ public class Exercises10 {
         }
     }
 
+    // replaces all words of length 4 with ****
     public static void markLength4(ArrayList<String> list) {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).length() == 4) {
@@ -99,6 +131,7 @@ public class Exercises10 {
         }
     }
 
+    // looks at a pair and removes the shorter string from said pair of values. if odd, last element remains in place.
     public static void removeShorterStrings(ArrayList<String> list) {
         int length = list.size();
         if (length % 2 != 0) {
@@ -117,6 +150,7 @@ public class Exercises10 {
         }
     }
 
+    // removes all elements in an arraylist that fall between min & max
     public static void filterRange(ArrayList<Integer> list, int min, int max) {
         int length = list.size();
         for (int i = 0; i < length; i++) {
@@ -129,16 +163,7 @@ public class Exercises10 {
         }
     }
 
-    public static void removeDuplicates(ArrayList<CalendarDate> list) {
-        CalendarDate test = new CalendarDate();
-        for (int i = 0; i < list.size() - 1; i++) {
-            if (test.compare(list.get(i), list.get(i + 1)) == 0) {
-                list.remove(i);
-                i--;
-            }
-        }
-    }
-
+    // weaves values of an arraylist, if one is longer, adds all values to the end.
     public static void interLeave(ArrayList<Integer> a1, ArrayList<Integer> a2) {
         int j = 0;
         int length = a1.size();
@@ -154,6 +179,7 @@ public class Exercises10 {
         }
     }
 
+    // creates a mirrored copy of values from arraylist and inserts it. starts from the end value (goes backwards) and adds to the end of arraylist
     public static void mirror(ArrayList<String> list) {
         int length = list.size();
         for (int i = length - 1; i > -1; i--) {
