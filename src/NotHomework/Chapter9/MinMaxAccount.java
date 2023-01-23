@@ -1,4 +1,4 @@
-package BJPExercises.Chapter9;
+package NotHomework.Chapter9;
 
 public class MinMaxAccount extends BankingAccount {
 

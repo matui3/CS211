@@ -1,6 +1,6 @@
 package NotHomework.Chapter9;
 
-public class Octagon implements Shape {
+public class Octagon implements BJPExercises.Chapter9.Shape {
 
     public static final int SIDELENGTH = 5;
 

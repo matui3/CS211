@@ -71,4 +71,84 @@ public class Exercises11
         return s3;
 
     }
+
+    public static boolean contains3(List<String> list) {
+        Map<String, Integer> map = new TreeMap<>();
+        for (String i : list) {
+            if (!map.containsKey(i)) {
+                map.put(i, 1);
+            } else {
+                int val = map.get(i);
+                val++;
+                map.put(i, val);
+            }
+        }
+
+        for (String i : map.keySet()) {
+            if (map.get(i) == 3) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean isUnique(Map<String, String> map) {
+        Map<String, Integer> values = new TreeMap<>();
+        if (map.isEmpty()) {
+            return true;
+        } else {
+            for (String i : map.keySet()) {
+                if (!values.containsKey(map.get(i))) {
+                    values.put(map.get(i), 1);
+                } else {
+                    int num = values.get(map.get(i));
+                    num++;
+                    values.put(map.get(i), num);
+                }
+            }
+        }
+        for (String i : values.keySet()) {
+            if (values.get(i) >= 2) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static Map<String, Integer> intersect(Map<String, Integer> map1, Map<String, Integer> map2) {
+        Map<String, Integer> map3 = new TreeMap<>();
+        for (String i : map1.keySet()) {
+            if (map2.containsKey(i)) {
+                if (map1.get(i).equals(map2.get(i))) {
+                    map3.put(i, map1.get(i));
+                }
+            }
+        }
+        return map3;
+    }
+
+    public static int maxOccurrences(List<Integer> list) {
+        Map<Integer, Integer> map = new TreeMap<>();
+        if (list.isEmpty()) {
+            return 0;
+        } else {
+            for (Integer i : list) {
+                if (!map.containsKey(i)) {
+                    map.put(i, 1);
+                } else {
+                    int val = map.get(i);
+                    val++;
+                    map.put(i, val);
+                }
+            }
+        }
+        int max = 0;
+        for (Integer i : map.keySet()) {
+            if (map.get(i) > max) {
+                max = map.get(i);
+            }
+        }
+        return max;
+    }
+
 }
