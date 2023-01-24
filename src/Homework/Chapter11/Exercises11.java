@@ -1,12 +1,8 @@
-package Homework.Chapter11;
-
 import java.util.*;
-/**
- * BC CS211
- * Selected Chapter 11 Exercises
- * 
- * W.P. Iverson, July 2019
- */
+// Jon Formantes
+// 1/23/2023
+// CS 211 - Winter 2023
+// Exercises11 contains several static methods for Lists, Maps, and Sets
 public class Exercises11
 {
     public static void main(String[] a) {
@@ -66,6 +62,7 @@ public class Exercises11
     }
 
 
+    // returns a new set of all items from two sets while removing items that belong to both.
     public static Set<Integer> symmetricSetDifference(Set<Integer> s1, Set<Integer> s2) {
         Set<Integer> s3 = new TreeSet<>();
         Iterator<Integer> i1 = s1.iterator();
@@ -87,6 +84,7 @@ public class Exercises11
 
     }
 
+    // takes a list of items and returns true if any string occurs at least 3 times.
     public static boolean contains3(List<String> list) {
         Map<String, Integer> map = new TreeMap<>();
         for (String i : list) {
@@ -107,6 +105,7 @@ public class Exercises11
         return false;
     }
 
+    // checks if all key values in a map are unique and no two keys contain the same value
     public static boolean isUnique(Map<String, String> map) {
         Map<String, Integer> values = new TreeMap<>();
         if (map.isEmpty()) {
@@ -130,6 +129,7 @@ public class Exercises11
         return true;
     }
 
+    // creates an intersection of two maps. aka a new map that only contains items that are exactly the same in both maps
     public static Map<String, Integer> intersect(Map<String, Integer> map1, Map<String, Integer> map2) {
         Map<String, Integer> map3 = new TreeMap<>();
         for (String i : map1.keySet()) {
@@ -142,6 +142,7 @@ public class Exercises11
         return map3;
     }
 
+    // creates a map that records the number of occurences of items in a list. Returns the number with the greatest number of occurences.
     public static int maxOccurrences(List<Integer> list) {
         Map<Integer, Integer> map = new TreeMap<>();
         if (list.isEmpty()) {
