@@ -2,10 +2,7 @@ package NotHomework.Chapter12;
 
 public class Exercises {
     public static void main(String[] args) {
-        System.out.println(multiplyEvens(4));
-        System.out.println(sumTo(2));
-        System.out.println(indexOf("abc", "d"));
-        System.out.println(dedup("bookkkkkeeper"));
+        printBinary(32);
 
     }
 
@@ -63,4 +60,43 @@ public class Exercises {
         }
         return str;
     }
+
+    public static void waysToClimb(int n) {
+        travel("[",0, n); // keep track is where x can increase up to n;
+    }
+
+    private static void travel(String s, int step, int n) {
+        if (n == 0) {
+            System.out.print("]");
+        } else {
+            int x = 0;
+        }
+    }
+
+    public static void countBinary(int n) {
+        travelBinary(0, n);
+    }
+
+    private static void travelBinary(int num, int n) {
+        if (num == n) {
+            System.out.print("");
+        } else {
+            System.out.println();
+
+        }
+    }
+
+    public static void printBinary(int n) {
+        if (n < 2) {
+            // base case; same as base 10
+            System.out.println(n);
+        } else {
+            // recursive case; break number apart
+            printBinary(n / 2);
+            printBinary(n % 2);
+        }
+    }
+
+
+
 }

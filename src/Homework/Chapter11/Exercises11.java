@@ -1,64 +1,33 @@
+package Homework.Chapter11;
+
 import java.util.*;
 // Jon Formantes
 // 1/23/2023
 // CS 211 - Winter 2023
 // Exercises11 contains several static methods for Lists, Maps, and Sets
-public class Exercises11
-{
+public class Exercises11 {
+    private static int i;
+
     public static void main(String[] a) {
-        Integer[] arr1 = {1, 4, 7, 9};
-        Integer[] arr2 = {2, 4, 5, 6, 7};
-        Set<Integer> s1 = new TreeSet<>();
-        Set<Integer> s2 = new TreeSet<>();
-        Collections.addAll(s1, arr1);
-        Collections.addAll(s2, arr2);
+        String[] arr = {"foo", "buzz", "bar", "fork", "bort", "spoon", "!", "dude"};
+        int[] arr1 = {1, 2, 3};
+        int[] arr2 = {3, 4, 5};
+        List<Integer> l1 = new ArrayList<>();
+        List<Integer> l2 = new ArrayList<>();
+        Set<String> s = new TreeSet<>();
+        for (int i : arr1) {
+            l1.add(i);
+        }
+        for (int i : arr2) {
+            l2.add(i);
+        }
+        for (String i : arr) {
+            s.add(i);
+        }
 
-        // Build Integer array
-        Integer[] arrayI = {7,4,-9,4,15,8,27,7,11,-5,32,-9,-9};
-        ArrayList<Integer> testListI = new ArrayList<Integer>();
-
-        // Build an array of Strings
-        String[] arrayS = {"Jane","Logan","Whitaker","Alyssa","Stefanie","Jeff","Kim","Sylvia"};
-        ArrayList<String> testListS = new ArrayList<String>();
-
-        // Build the Set of Strings:
-        Set<String> testSetS = new TreeSet<String>(testListS);
-        Collections.addAll(testListS, arrayS);
-
-        // Build the Set of Integers:
-        Set<Integer> testSetI = new TreeSet<Integer>(Arrays.asList(arrayI));
-
-        // Build a Map of Strings:
-//        Map<String, String> testMapSS = new HashMap<String, String>();
-//        Map<String, Integer> testMapSI = new HashMap<String, Integer>();
-//        String[] array2 = {"Jane2","Logan2","Whitaker2","Alyssa2","Stefanie2","Jeff2","Kim2","Sylvia2"};
-//        for (int i=0; i<arrayS.length; i++) testMapSS.put(arrayS[i], array2[i]);
-//        for (int i=0; i<arrayS.length; i++) testMapSI.put(arrayS[i], i);
-
-        // Exercise 11.8
-        System.out.println(testSetS);
-        //System.out.println("maxLength="+maxLength(testSetS));
-        
-        // Exercise 11.11
-        System.out.println(testSetI);
-        System.out.println("symmetricSetDifference="+symmetricSetDifference(testSetI,testSetI));
-        System.out.println(symmetricSetDifference(s1, s2));
-//
-//        // Exercise 11.12
-//        System.out.println(testListS);
-//        //System.out.println("contains3="+contains3(testListS));
-//
-//        // Exercise 11.13
-//        System.out.println(testMapSS);
-//        //System.out.println("isUnique="+isUnique(testMapSS));
-//
-//        // Exercise 11.14
-//        System.out.println(testMapSI);
-//        //System.out.println("intersect="+intersect(testMapSI,testMapSI));
-//
-//        // Exercise 11.15
-//        System.out.println(testListI);
-//        //System.out.println("maxOccurrences="+maxOccurrences(testListI));
+        System.out.println(countCommon(l1, l2));
+        removeEvenLength(s);
+        System.out.println(s);
     }
 
 
@@ -165,6 +134,80 @@ public class Exercises11
             }
         }
         return max;
+    }
+
+    public static List<Integer> alternate(List<Integer> l1, List<Integer> l2) {
+        if (l1.isEmpty()) {
+            return l2;
+        } else if (l2.isEmpty()) {
+            return l1;
+        }
+        List<Integer> l3 = new ArrayList<>();
+        int i = 0;
+        int j = 0;
+        if (l1.size() < l2.size()) {
+            for (i = 0; i < l1.size(); i++) {
+                l3.add(l1.get(i));
+                l3.add(l2.get(j));
+                j++;
+            }
+            for (int k = j; k < l2.size(); k++) {
+                l3.add(l2.get(k));
+            }
+        } else {
+            for (i = 0; i < l2.size(); i++) {
+                l3.add(l1.get(i));
+                l3.add(l2.get(j));
+                j++;
+            }
+            for (int k = j; k < l1.size(); k++) {
+                l3.add(l2.get(k));
+            }
+        }
+        return l3;
+    }
+
+
+    public static int countCommon(List<Integer> l1, List<Integer> l2) {
+        Set<Integer> s2 = new TreeSet<>();
+        Set<Integer> s1 = new TreeSet<>();
+        Set<Integer> s3 = new TreeSet<>();
+        for (Integer i : l1) {
+            s3.add(i);
+            s1.add(i);
+        }
+        for (Integer i : l2) {
+            s3.add(i);
+            s2.add(i);
+        }
+        Iterator<Integer> i1 = s3.iterator();
+        while (i1.hasNext()) {
+            int val = i1.next();
+            if (s1.contains(val) && !s2.contains(val) || !s1.contains(val) && s2.contains(val)) {
+                i1.remove();
+            }
+        }
+        return s3.size();
+    }
+
+    public static void removeEvenLength(Set<String> s) {
+        Iterator<String> itr = s.iterator();
+        while (itr.hasNext()) {
+            String word = itr.next();
+            if (word.length() % 2 == 0) {
+                itr.remove();
+            }
+        }
+    }
+
+    public static Map<String, Integer> reverse(Map<Integer, String> map) {
+        Map<String, Integer> dict = new TreeMap<>();
+        for (Integer i : map.keySet()) {
+            if (!dict.containsKey(map.get(i))) {
+                dict.put(map.get(i), i);
+            }
+        }
+        return dict;
     }
 
 }

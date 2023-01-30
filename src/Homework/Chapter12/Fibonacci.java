@@ -5,10 +5,9 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.TreeMap;
 
-/* CS211 Fibonacci Class, for Chapter 12 Assignment
- * Bellevue College, W.P. Iverson, instructor
- * January 2022
- */
+// Jon Formantes
+// CS 211  1/30/2023
+// Calculates Fibonaaci number butin an imroved method. Removes doulbe recursive calls.
 public class Fibonacci {
 	
 	// fields, ONE is in any version of Java already
@@ -76,11 +75,13 @@ public class Fibonacci {
         }
     }
 
+	// Calculates Fibonaaci number butin an imroved method. Removes doulbe recursive calls.Uses BigInteger
 	public BigInteger bigFastFib() {
 		// need some help here:
 		return fibonacciBig(BigInteger.ZERO, ONE, BigInteger.ZERO, new BigInteger(Integer.toString(n)));
 	}
 
+	// heler method for bigFastFib, recursively calculates/uses same alogirthm as small int
 	private BigInteger fibonacciBig(BigInteger prev, BigInteger curr, BigInteger i, BigInteger x) {
 		i = i.add(ONE);
 		if (i.compareTo(BigInteger.valueOf(n)) < 0) {
