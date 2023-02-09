@@ -1,3 +1,5 @@
+package Homework.Chapter12;
+
 import java.math.BigInteger;
 
 // Jon Formantes
@@ -40,17 +42,16 @@ public class Fibonacci {
 	// public accessor into recursive helper
 	public int fibonacci() {
 
-		return fibonacciHelper(0, 1, 0, n);
+		return fibonacciHelper(n);
 	}
 
 	// private recursive helper given in text
 	// Chapter 12, page 830 (5th ed.)
-    private int fibonacciHelper(int prev, int curr, int i, int n) {
-		i++;
-		if (i < n) {
-			return fibonacciHelper(curr, curr + prev, i, n);
+    private int fibonacciHelper(int n) {
+		if (n <= 2) {
+			return 1;
 		} else {
-			return curr;
+			return fibonacciHelper(n-1) + fibonacciHelper(n-2);
 		}
 
 	}
