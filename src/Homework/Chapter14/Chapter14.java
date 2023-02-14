@@ -1,6 +1,4 @@
-package Homework.Chapter14;
-
-// Jon Formantes
+package Homework.Chapter14;// Jon Formantes
 // CS 211  1/30/2023
 // Contains several stack/queue methods - stutter, equals, isSorted, and removeMin
 
