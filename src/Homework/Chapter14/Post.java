@@ -10,16 +10,46 @@ import java.util.Queue;
 public class Post {
 	public static void main(String[] args) {
 		// store some dates so they can be reused
-        CalendarDate[] store = {new CalendarDate(1,2,10), new CalendarDate(1,1,10), new CalendarDate(12,30,10)};
-        Stack<CalendarDate> testAll = new Stack<CalendarDate>();
-		for (CalendarDate i: store) testAll.push(i); // build a Stack
-		System.out.println(Chapter14.stutter(testAll)); // 6 dates
-		System.out.println(Post.equals(testAll,testAll)); // true
-		System.out.println(Chapter14.isSorted(testAll)); // false
-		for (int i=1;i<=9;i++) testAll.push(new CalendarDate(1,1,10));
-		Chapter14.removeMin(testAll);
-		while (!testAll.empty())
-			System.out.println(testAll.pop().longDate()); // only 2 remain
+		//stacks to test
+		Stack<CalendarDate> stack = new Stack<>();
+		for(int i = 20; i > 10; i--) {
+			stack.push(new CalendarDate(1,i,92));
+		}
+		Stack<CalendarDate> stack2 = new Stack<>();
+		for(int i = 1; i < 10; i++) {
+			stack2.push(new CalendarDate(i,1,92));
+		}
+		Stack<CalendarDate> stack3 = new Stack<>();
+		for(int i = 1; i < 10; i++) {
+			stack3.push(new CalendarDate(i,1,92));
+		}
+		Stack<CalendarDate> empty = new Stack<>();
+
+		//test cases
+		System.out.println(stack);
+		System.out.println(Chapter14.stutter(stack)); //do they repeat?
+		System.out.println(Chapter14.equals(stack, stack2)); //false
+		System.out.println(Chapter14.equals(stack2, stack3)); //true
+		System.out.println(Chapter14.isSorted(stack2));	//false
+		System.out.println(Chapter14.isSorted(stack));	//true
+
+
+		System.out.println();
+		System.out.println("Before: " + stack);
+		System.out.println(Chapter14.removeMin(stack)); //1/11/92
+		System.out.println("After: " +stack); //did it delete that number ^?
+
+		System.out.println();
+		System.out.println("Before: " +stack2);
+		System.out.println(Chapter14.removeMin(stack2)); //1/1/92
+		System.out.println("After: " +stack2); //did it delete that number ^?
+
+		//Do they work with empty stacks?
+		System.out.println();
+		System.out.println(Chapter14.stutter(empty)); //Should be empty -> []
+		System.out.println(Chapter14.equals(empty,empty)); //true
+		System.out.println((Chapter14.isSorted(empty))); //true
+		System.out.println(Chapter14.removeMin(empty)); //null
 	}
 
 	public static Stack<CalendarDate> stutter(Stack<CalendarDate> s) {
@@ -56,13 +86,7 @@ public class Post {
 		if (s1.size() != s2.size()) {
 			return false;
 		}
-		while (!s1.empty()) {
-			s3.push(s1.pop());
-		}
-		if (s2.empty()) {
-			while (!s3.empty()) {
-				s1.push(s3.pop());
-			}
+		if (s1 == s2) {
 			return true;
 		}
 		while (!s1.empty() && !s2.empty()) {
