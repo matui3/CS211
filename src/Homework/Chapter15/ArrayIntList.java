@@ -1,12 +1,7 @@
-package Homework.Chapter15;/* BJP code modified (by W.P. Iverson, 2023) to import only what's needed
- * to learn about an int array list data structure, like no imports.
- * 
- * Most of this code from 
- * http://practiceit.cs.washington.edu/problems/shared/ArrayIntList.java
- * Reges and Stepp provided inner class iterator (see end of file)
- * and also provided (...) arguments as used in constructor
- * 
-*/
+// Jon Formantes
+// CS211
+// 2/20/2023 - Winter 2023
+// Contains several methods to manipulate/change arrayIntlist such as mirror, stutter, removeAll etc.
 
 public class ArrayIntList {
     private int[] elementData;  // list of integers
@@ -28,21 +23,24 @@ public class ArrayIntList {
         }
         return -1;
     }
-    
+
+    // removes the last element in the ArrayList
     public int removeLast() {
-        int last = get(size-1);
-        remove(size-1);
+        int last = get(size()-1);
+        remove(size()-1);
         return last;
     }
 
+    // removes the first n values from the ArrayList
     public void removeFront(int n) {
         for (int i = 0; i < n; i++) {
             remove(0);
         }
     }
-    
+
+    // removes all occurrences of a given value
     public void removeAll(int n) { /// [1,2,3,3,4,2,5]
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size(); i++) {
             if (elementData[i] == n) {
                 remove(i);
                 i--;
@@ -50,14 +48,16 @@ public class ArrayIntList {
         }
     }
 
+    // creates a mirror copy, added to end of list (ex: [1, 2, 3] -> [1, 2, 3, 3, 2, 1]
     public void mirror() {
-        for (int i = size - 1; i >= 0; i--) {
+        for (int i = size() - 1; i >= 0; i--) {
             add(elementData[i]);
         }
     }
 
+    // creates two copies of each element in arraylist
     public void stutter() {
-        for (int i = 0; i < size; i+=2) {
+        for (int i = 0; i < size(); i+=2) {
             add(i+1, elementData[i]);
         }
     }

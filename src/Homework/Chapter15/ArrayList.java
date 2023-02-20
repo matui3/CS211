@@ -1,11 +1,8 @@
-package Homework.Chapter15;/*
- * Generic <E> ArrayList Class from Building Java Programs
- * slightly modified by W.P. Iverson, Bellevue College
- * January 2023, I have changed:
- * 			default capacity to 10 as  Oracle also does
- * 			uses private inner Class with Iterator<E>
- * 			made Class Iterable<E> as already posted on BJP site
- */
+
+// Jon Formantes
+// CS211
+// 2/20/2023 - Winter 2023
+// Contains several methods to manipulate/change arraylist such as mirror, stutter, removeAll etc.
 
 // Class ArrayList<E> can be used to store a list of values of type E.
 import java.util.Arrays;
@@ -51,21 +48,24 @@ public class ArrayList<E> implements Iterable<E> {
         return -1;
     }
 
+    // removes the last element in the ArrayList
     public E removeLast() {
-        E last = get(size-1);
-        remove(size-1);
+        E last = get(size()-1);
+        remove(size()-1);
         size--;
         return last;
     }
 
+    // removes the first n values from the ArrayList
     public void removeFront(int n) {
         for (int i = 0; i < n; i++) {
             remove(0);
         }
     }
 
+    // removes all occurrences of a given value
     public void removeAll(E n) { /// [1,2,3,3,4,2,5]
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size(); i++) {
             if (elementData[i].equals(n)) {
                 remove(i);
                 i--;
@@ -73,14 +73,16 @@ public class ArrayList<E> implements Iterable<E> {
         }
     }
 
+    // creates a mirror copy, added to end of list (ex: [1, 2, 3] -> [1, 2, 3, 3, 2, 1]
     public void mirror() {
-        for (int i = size - 1; i >= 0; i--) {
+        for (int i = size() - 1; i >= 0; i--) {
             add(elementData[i]);
         }
     }
 
+    // creates two copies of each element in arraylist (ex: [1, 2] -> [1, 1, 2, 2]
     public void stutter() {
-        for (int i = 0; i < size; i+=2) {
+        for (int i = 0; i < size(); i+=2) {
             add(i+1, elementData[i]);
         }
     }
