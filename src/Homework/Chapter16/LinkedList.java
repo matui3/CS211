@@ -32,18 +32,39 @@ public class LinkedList<E extends Comparable<E>> implements Iterable<E>{
     }
 
     public void switchPairs() {
-        E temp = null;
-        LinkedIterator itr = new LinkedIterator();
-        while (itr.hasNext()) {
-            E current = itr.next();
+        while (iterator().hasNext()) {
+            E current = iterator().next();
             int idx = indexOf(current);
-            if (idx % 2 == 0 && itr.hasNext()) {
+            if (idx % 2 == 0 && iterator().hasNext()) {
                 remove(idx);
                 add(idx + 1, current);
-                itr.next();
+                iterator().next();
             }
         }
 
+    }
+
+    public void stutter() {
+        int idx = 0;
+        int length = 2 * size();
+        while (iterator().hasNext() && idx < length) {
+            E current = get(idx);
+            add(idx+1, current);
+            idx += 2;
+
+        }
+    }
+
+    public void removeAll(E val) {
+        int idx = 0;
+        while (idx < size()) {
+            E current = get(idx);
+            if (current.equals(val)) {
+                remove(idx);
+                idx--;
+            }
+            idx += 1;
+        }
     }
     
     

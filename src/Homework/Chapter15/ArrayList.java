@@ -1,4 +1,4 @@
-
+package Homework.Chapter15;
 // Jon Formantes
 // CS211
 // 2/20/2023 - Winter 2023
@@ -50,6 +50,9 @@ public class ArrayList<E> implements Iterable<E> {
 
     // removes the last element in the ArrayList
     public E removeLast() {
+        if (size() == 0) {
+            throw new NoSuchElementException();
+        }
         E last = get(size()-1);
         remove(size()-1);
         size--;
@@ -86,20 +89,6 @@ public class ArrayList<E> implements Iterable<E> {
             add(i+1, elementData[i]);
         }
     }
-    
-    
- 
- 
- 
- 
-    
-    
-    
- 
- 
- 
-    
-    
     
     
     

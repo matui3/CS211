@@ -1,7 +1,10 @@
+package Homework.Chapter15;
 // Jon Formantes
 // CS211
 // 2/20/2023 - Winter 2023
 // Contains several methods to manipulate/change arrayIntlist such as mirror, stutter, removeAll etc.
+
+import java.util.NoSuchElementException;
 
 public class ArrayIntList {
     private int[] elementData;  // list of integers
@@ -26,6 +29,9 @@ public class ArrayIntList {
 
     // removes the last element in the ArrayList
     public int removeLast() {
+        if (size() == 0) {
+            throw new NoSuchElementException();
+        }
         int last = get(size()-1);
         remove(size()-1);
         return last;
