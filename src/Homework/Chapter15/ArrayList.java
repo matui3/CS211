@@ -52,20 +52,23 @@ public class ArrayList<E> implements Iterable<E> {
     }
 
     public E removeLast() {
-        E last = elementData[size-1];
+        E last = get(size-1);
         remove(size-1);
         size--;
         return last;
     }
 
-    public void removeFront(E n) {
-        remove(0);
+    public void removeFront(int n) {
+        for (int i = 0; i < n; i++) {
+            remove(0);
+        }
     }
 
     public void removeAll(E n) { /// [1,2,3,3,4,2,5]
         for (int i = 0; i < size; i++) {
-            if (elementData[i] == n) {
+            if (elementData[i].equals(n)) {
                 remove(i);
+                i--;
             }
         }
     }

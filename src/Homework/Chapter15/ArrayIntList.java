@@ -30,19 +30,22 @@ public class ArrayIntList {
     }
     
     public int removeLast() {
-        int last = elementData[size-1];
+        int last = get(size-1);
         remove(size-1);
         return last;
     }
 
     public void removeFront(int n) {
-        remove(0);
+        for (int i = 0; i < n; i++) {
+            remove(0);
+        }
     }
     
     public void removeAll(int n) { /// [1,2,3,3,4,2,5]
         for (int i = 0; i < size; i++) {
             if (elementData[i] == n) {
                 remove(i);
+                i--;
             }
         }
     }
