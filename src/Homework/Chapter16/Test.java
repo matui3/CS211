@@ -1,7 +1,5 @@
 package Homework.Chapter16;
 
-import java.util.Iterator;
-
 public class Test {
     public static void main(String[] args) {
         LinkedList<Integer> A = new LinkedList<>();
@@ -66,7 +64,7 @@ public class Test {
 
         System.out.println("\nSWITCH PAIRS: ");
         System.out.println("Before: " + oneI + ", Size: " + oneI.size());
-//        oneI.switchPairs();
+        oneI.switchPairs();
         System.out.println("After:  " + oneI + ", Size: " + oneI.size());
         System.out.println("After backwards: " + oneI.backwards());
 

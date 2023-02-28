@@ -22,6 +22,9 @@ public class LinkedList<E extends Comparable<E>> implements Iterable<E>{
     
 // ADD MORE METHODS HERE (like for assigned CS211 work):
 // #7 deleteBack, #8 switchPairs, #9 stutter, #14 removaAll
+
+
+    // deletes the last value and returns it, if empty throws exception
     public E deleteBack() {
         if (size() == 0) {
             throw new NoSuchElementException();
@@ -31,6 +34,7 @@ public class LinkedList<E extends Comparable<E>> implements Iterable<E>{
         return last;
     }
 
+    // swaps the order of pairs in a list
     public void switchPairs() {
         int length = size();
         if (length % 2 != 0) {
@@ -45,6 +49,7 @@ public class LinkedList<E extends Comparable<E>> implements Iterable<E>{
         }
     }
 
+    // doubles thej size of a list, replaces every object with two of that object
     public void stutter() {
         int idx = 0;
         int length = 2 * size();
@@ -56,6 +61,7 @@ public class LinkedList<E extends Comparable<E>> implements Iterable<E>{
         }
     }
 
+    // removes all occurences of a value present in a list
     public void removeAll(E val) {
         int idx = 0;
         while (idx < size()) {
