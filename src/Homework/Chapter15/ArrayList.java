@@ -55,7 +55,6 @@ public class ArrayList<E> implements Iterable<E> {
         }
         E last = get(size()-1);
         remove(size()-1);
-        size--;
         return last;
     }
 
