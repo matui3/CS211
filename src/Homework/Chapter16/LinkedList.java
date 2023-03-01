@@ -1,4 +1,8 @@
-package Homework.Chapter16;
+package Homework.Chapter16;// Jon Formantes
+// Winter 2023 - 2/27/2023
+// CS211
+// Contains 4 exercise methods - deleteBack, switchpairs, stutter and removeAll. Each method manipulate the list by
+// either removing the data, changing the order of teh data, or adds data
 
 import java.util.*;
 // Class LinkedList<E> can be used to store a list of values of type E.
