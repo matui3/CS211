@@ -21,6 +21,6 @@ public class SearchTreeTest {
         System.out.println(tree2);
         System.out.println(tree1.equals(tree2)); // true
 //        tree1.removeLeaves();
-        System.out.println(tree1.remove(7));
+        System.out.println(tree1.remove(3));
     }
 }

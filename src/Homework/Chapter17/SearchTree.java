@@ -102,10 +102,13 @@ public class SearchTree<E extends Comparable<E>> {
                 root.right = removeHelper(root.right, data, temp);
             } else {
                 if (root.left == null && root.right == null) {
+                    temp.data = root.data;
                     return null;
                 } else if (root.left != null && root.right == null) {
+                    temp.data = root.data;
                     return root.left;
                 } else if (root.left == null && root.right != null) {
+                    temp.data = root.data;
                     return root.right;
                 } else {
                     temp.data = root.data;
