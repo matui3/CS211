@@ -8,11 +8,12 @@ public class SearchTreeTest {
 
         SearchTree<Integer> tree1 = new SearchTree<>();
         SearchTree<Integer> tree2 = new SearchTree<>();
-        tree1.add(2); tree1.add(1);  tree1.add(3);
+        tree1.add(2); tree1.add(1);
+        tree1.add(4);   tree1.add(3);
         tree1.add(7); tree1.add(8); tree1.add(6);
 
         tree2.add(2); tree2.add(1);  tree2.add(3);
-        tree2.add(7); tree2.add(8); tree2.add(6);
+         tree2.add(7); tree2.add(8); tree2.add(6);
 
         System.out.println(tree.isFull()); // false
 
@@ -20,7 +21,9 @@ public class SearchTreeTest {
         System.out.println(tree1);
         System.out.println(tree2);
         System.out.println(tree1.equals(tree2)); // true
-//        tree1.removeLeaves();
-        System.out.println(tree1.remove(3));
+
+        System.out.println(tree1);
+        tree1.remove(4);
+        System.out.println(tree1);
     }
 }

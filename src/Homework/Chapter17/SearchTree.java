@@ -80,55 +80,45 @@ public class SearchTree<E extends Comparable<E>> {
     }
 
 
-    public E remove(E data) {
+    public void remove(E data) {
         if (data == null) {
             throw new IllegalArgumentException();
         }
         if (!contains(data)) {
             throw new NoSuchElementException();
         }
-        SearchTreeNode<E> temp = new SearchTreeNode<>(null);
-        overallRoot = removeHelper(overallRoot, data, temp);
-        return temp.data;
+        overallRoot = removeHelper(overallRoot, data);
     }
 
-    private SearchTreeNode<E> removeHelper(SearchTreeNode<E> root, E data, SearchTreeNode<E> temp) {
+    private SearchTreeNode<E> removeHelper(SearchTreeNode<E> root, E data) {
         if (root == null) {
             return null;
         } else {
             if (data.compareTo(root.data) < 0) {
-                root.left = removeHelper(root.left, data, temp);
+                root.left = removeHelper(root.left, data);
             } else if (data.compareTo(root.data) > 0) {
-                root.right = removeHelper(root.right, data, temp);
+                root.right = removeHelper(root.right, data);
             } else {
                 if (root.left == null && root.right == null) {
-                    temp.data = root.data;
                     return null;
-                } else if (root.left != null && root.right == null) {
-                    temp.data = root.data;
+                } else if (root.right == null) {
                     return root.left;
-                } else if (root.left == null && root.right != null) {
-                    temp.data = root.data;
+                } else if (root.left == null) {
                     return root.right;
                 } else {
-                    temp.data = root.data;
-                    SearchTreeNode<E> dummy = new SearchTreeNode<>(null);
-                    root.right = removeSuccessor(root.right, dummy);
-                    root.data = dummy.data;
+                    root.data = getMin(root.right);
+                    root.right = removeHelper(root.right, root.data);
                 }
             }
         }
         return root;
     }
 
-    private SearchTreeNode<E> removeSuccessor(SearchTreeNode<E> root, SearchTreeNode<E> dummy) {
-        if (root.left == null) {
-            dummy.data = root.data;
-            return root.right;
-        } else {
-            root.left = removeSuccessor(root.left, dummy);
-            return root;
+    private E getMin(SearchTreeNode<E> root) {
+        while (root.left != null) {
+            root = root.left;
         }
+        return root.data;
     }
     
     
