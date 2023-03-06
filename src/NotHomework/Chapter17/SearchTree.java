@@ -1,12 +1,10 @@
-package Homework.Chapter17;// Class SearchTree stores and prints a binary search tree of
+package NotHomework.Chapter17;// Class SearchTree stores and prints a binary search tree of
 // objects of type E.  E must implement the Comparable<E>
 // interface.  from Reges and Stepp, Building Java Programs
 //
 // modified by W.P. Iverson, to not allow duplicates added
 // added toString()
 // Bellevue College, January 2021
-
-import java.util.NoSuchElementException;
 
 public class SearchTree<E extends Comparable<E>> {
     private SearchTreeNode<E> overallRoot; // root of overall tree
@@ -17,112 +15,8 @@ public class SearchTree<E extends Comparable<E>> {
     }
     
     // WRITE ADDITIONAL METHODS HERE:
+    
 
-    // checks if every branch node has two children - aka a full tree
-    public boolean isFull() {
-        if (overallRoot == null) {
-            return true;
-        } else {
-            boolean flag = true;
-            return helperIsFull(overallRoot, flag);
-        }
-    }
-
-    // helper method for isFull (checks for full tree)
-    private boolean helperIsFull(SearchTreeNode<E> root, boolean flag) {
-        // case 1:
-        if (root.left == null && root.right == null && flag) {
-            return true;
-        } else if (root.left != null && root.right == null || root.left == null && root.right != null && flag) {
-            return false;
-        } else {
-            return helperIsFull(root.left, flag) && helperIsFull(root.right, flag);
-        }
-    }
-
-    // used the following website for help in determining steps: https://www.geeksforgeeks.org/write-c-code-to-determine-if-two-trees-are-identical/
-    // checks if two trees have the same structure and value
-    public boolean equals(Object o)  {
-        if (o instanceof SearchTree) {
-            return helperEquals(overallRoot, ((SearchTree) o).overallRoot);
-        }
-        return false;
-    }
-
-    // helper method for equals method - checks if two trees are identical
-    private boolean helperEquals(SearchTreeNode<E> root, SearchTreeNode<E> root2) {
-        if (root == null && root2 == null) {
-            return true;
-        } else if (root != null && root2 != null) {
-            if (root.data.compareTo(root2.data) == 0) {
-                return helperEquals(root.left, root2.left) && helperEquals(root.right, root2.right);
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-    }
-
-    // removes the leaves of a tree
-    public void removeLeaves() {
-        if (overallRoot == null) {
-            return;
-        }
-        overallRoot = removeLeafHelper(overallRoot);
-    }
-
-    // helper method to remove the leaves from a tree using the x = change(x) principle
-    private SearchTreeNode<E> removeLeafHelper(SearchTreeNode<E> root) {
-        // base case
-        if (root == null) {
-            return null;
-        } else if (root.left == null && root.right == null) {
-            return null;
-        } else {
-            root.left = removeLeafHelper(root.left);
-            root.right = removeLeafHelper(root.right);
-            return root;
-        }
-    }
-
-    // code taken from BJP PowerPoint - Binary Trees
-    public void remove(E data) {
-        overallRoot = removeHelper(overallRoot, data);
-    }
-
-    // code taken from BJP PowerPoint - Binary Trees - On remove slide.
-    private SearchTreeNode<E> removeHelper(SearchTreeNode<E> root, E data) {
-        if (root == null) {
-            return null;
-        } else {
-            if (data.compareTo(root.data) < 0) {
-                root.left = removeHelper(root.left, data);
-            } else if (data.compareTo(root.data) > 0) {
-                root.right = removeHelper(root.right, data);
-            } else {
-                if (root.left == null && root.right == null) {
-                    return null;
-                } else if (root.right == null) {
-                    return root.left;
-                } else if (root.left == null) {
-                    return root.right;
-                } else {
-                    root.data = getMin(root.right);
-                    root.right = removeHelper(root.right, root.data);
-                }
-            }
-        }
-        return root;
-    }
-
-    // method for determining minimum node from a root
-    private E getMin(SearchTreeNode<E> root) {
-        while (root.left != null) {
-            root = root.left;
-        }
-        return root.data;
-    }
     
     
     
