@@ -1,12 +1,9 @@
-package Homework.Chapter17;// Class SearchTree stores and prints a binary search tree of
-// objects of type E.  E must implement the Comparable<E>
-// interface.  from Reges and Stepp, Building Java Programs
-//
-// modified by W.P. Iverson, to not allow duplicates added
-// added toString()
-// Bellevue College, January 2021
+package Homework.Chapter17;
 
-import java.util.NoSuchElementException;
+// Jon Formantes
+// 3/6/2023
+// Winter 2023 - CS211
+// Implements four methods, remove, isFull, removeLeaves, and equals
 
 public class SearchTree<E extends Comparable<E>> {
     private SearchTreeNode<E> overallRoot; // root of overall tree
@@ -18,7 +15,7 @@ public class SearchTree<E extends Comparable<E>> {
     
     // WRITE ADDITIONAL METHODS HERE:
 
-    // checks if every branch node has two children - aka a full tree
+    // checks if every branch node has two children or zero - aka a full tree
     public boolean isFull() {
         if (overallRoot == null) {
             return true;
@@ -29,6 +26,7 @@ public class SearchTree<E extends Comparable<E>> {
     }
 
     // helper method for isFull (checks for full tree)
+    // checks if null;
     private boolean helperIsFull(SearchTreeNode<E> root, boolean flag) {
         // case 1:
         if (root.left == null && root.right == null && flag) {
@@ -42,11 +40,8 @@ public class SearchTree<E extends Comparable<E>> {
 
     // used the following website for help in determining steps: https://www.geeksforgeeks.org/write-c-code-to-determine-if-two-trees-are-identical/
     // checks if two trees have the same structure and value
-    public boolean equals(Object o)  {
-        if (o instanceof SearchTree) {
-            return helperEquals(overallRoot, ((SearchTree) o).overallRoot);
-        }
-        return false;
+    public boolean equals(SearchTree<E> tree2)  {
+        return helperEquals(overallRoot, tree2.overallRoot);
     }
 
     // helper method for equals method - checks if two trees are identical
@@ -91,7 +86,7 @@ public class SearchTree<E extends Comparable<E>> {
         overallRoot = removeHelper(overallRoot, data);
     }
 
-    // code taken from BJP PowerPoint - Binary Trees - On remove slide.
+    // code taken from BJP PowerPoint - Binary Trees - On remove slide. Handles leaf case, null case
     private SearchTreeNode<E> removeHelper(SearchTreeNode<E> root, E data) {
         if (root == null) {
             return null;
