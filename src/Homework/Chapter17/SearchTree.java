@@ -1,6 +1,4 @@
-package Homework.Chapter17;
-
-// Jon Formantes
+package Homework.Chapter17;// Jon Formantes
 // 3/6/2023
 // Winter 2023 - CS211
 // Implements four methods, remove, isFull, removeLeaves, and equals
@@ -20,21 +18,20 @@ public class SearchTree<E extends Comparable<E>> {
         if (overallRoot == null) {
             return true;
         } else {
-            boolean flag = true;
-            return helperIsFull(overallRoot, flag);
+            return helperIsFull(overallRoot);
         }
     }
 
     // helper method for isFull (checks for full tree)
     // checks if null;
-    private boolean helperIsFull(SearchTreeNode<E> root, boolean flag) {
+    private boolean helperIsFull(SearchTreeNode<E> root) {
         // case 1:
-        if (root.left == null && root.right == null && flag) {
+        if (root.left == null && root.right == null) {
             return true;
-        } else if (root.left != null && root.right == null || root.left == null && root.right != null && flag) {
+        } else if (root.left != null && root.right == null || root.left == null && root.right != null) {
             return false;
         } else {
-            return helperIsFull(root.left, flag) && helperIsFull(root.right, flag);
+            return helperIsFull(root.left) && helperIsFull(root.right);
         }
     }
 

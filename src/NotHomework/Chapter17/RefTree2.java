@@ -1,5 +1,8 @@
 package NotHomework.Chapter17;
 
+import Quizzes.IntTree;
+import Quizzes.IntTreeNode;
+
 /**
  * BJP, reference tree #2
  * page 1076, for exercises #16 and #17
@@ -12,28 +15,50 @@ public class RefTree2
     public static void main(String[] args) {
 
     	// create the nodes we need
-        IntTreeNode six = new IntTreeNode(6,null,new IntTreeNode(9,null,null));
-        IntTreeNode seven = new IntTreeNode(7,new IntTreeNode(4,null,null),null);
-        IntTreeNode eight = new IntTreeNode(8,new IntTreeNode(0,null,null),null);
+        IntTreeNode one = new Quizzes.IntTreeNode(0,null,null);
+        IntTreeNode two = new Quizzes.IntTreeNode(0,null,null);
+        two = new Quizzes.IntTreeNode(2,null,new Quizzes.IntTreeNode(9,null,new Quizzes.IntTreeNode(0,null,null)));
+        one = new Quizzes.IntTreeNode(1,new Quizzes.IntTreeNode(8,new Quizzes.IntTreeNode(7,null,null),null),two);
 
-        // build tree from above nodes
-        IntTree tree2 = new IntTree(new IntTreeNode(2,eight,new IntTreeNode(1,seven,six)));
-        //IntTree tree2 = new IntTree(new IntTreeNode(2,null,new IntTreeNode(1,null,null)));
+        Quizzes.IntTree quiz17 = new Quizzes.IntTree(one);
 
-        // KNOW how this output works!!!
-//        tree2.printSideways();
-        System.out.println(tree2.countEvenBranches());
-        tree2.printLevel(3);
-        tree2.printLeaves();
-        System.out.println(tree2);
-        // and this gives same output:
-//        System.out.println("\n------------------------\n");
-//        System.out.println(tree2);
+        System.out.println(quiz17);
+        System.out.println("---------------------------");
+        quiz17.removeEvenNumbers();
+        System.out.println(quiz17);
 
-        // Same nodes into Search Tree will yield a very different structure
-        SearchTree<Integer> tree999 = new SearchTree<Integer>();
-        tree999.add(2);  tree999.add(1);  tree999.add(7);  tree999.add(4);
-        tree999.add(8);  tree999.add(0);  tree999.add(6);  tree999.add(9);
+        // Some other trees to test
+        Quizzes.IntTree quiz17zero = new Quizzes.IntTree();
+        // empty tree test
+        System.out.println("BEFORE:");
+        System.out.println(quiz17zero);
+        quiz17zero.removeEvenNumbers();
+        System.out.println("AFTER:");
+        System.out.println(quiz17zero);
+
+
+        Quizzes.IntTreeNode odds = new IntTreeNode(1,null, null);
+        Quizzes.IntTree allOdds = new Quizzes.IntTree(odds);
+
+
+        System.out.println("BEFORE:");
+        System.out.println(allOdds);
+        allOdds.removeEvenNumbers();
+        System.out.println("AFTER:");
+        System.out.println(allOdds);
+
+
+        IntTree quiz170 = new IntTree(170);
+        System.out.println("BEFORE:");
+        System.out.println(quiz170);
+        quiz170.removeEvenNumbers();
+        System.out.println("AFTER:");
+        System.out.println(quiz170);
+
+        IntTree quiz9 = new IntTree(9);
+        System.out.println(quiz9);
+        quiz9.removeEvenNumbers();
+        System.out.println(quiz9);
 //        System.out.println("\n------------------------\n");
 //        System.out.println(tree999);
     }
