@@ -1,4 +1,11 @@
-package Homework.Chapter18;// Implements a set of objects using a hash table.
+package Homework.Chapter18;
+
+// Jon Formantes
+// CS211 - 3/13/2023
+// Winter 2023
+// toString2 method added, creates a visual display of the structure of the hashset
+
+// Implements a set of objects using a hash table.
 // The hash table uses separate chaining to resolve collisions.
 // Original from buildingjavaprograms.com supplements
 // minor edits by Bill Iverson, Bellevue College, January 2022
@@ -16,12 +23,16 @@ public class HashSet<E> {
     }
     
     // ADD METHODS HERE for exercise solutions:
-    
+
+    // toString2 creates a visual string display of the structure of the hashset.
     public String toString2() {
+        // prints the whole top row of indices
         String result = "";
         for (int i = 0; i < elementData.length; i++) {
-            result += String.format("[%d]%7s", i, " ");
+            String column = "[" + i + "]";
+            result += String.format("%-10s", column);
         }
+        // loop to determine the longest chain length
         int currentChainLength = 0;
         int maxChainLength = 0;
         for (int i = 0; i < elementData.length; i++) {
@@ -37,8 +48,10 @@ public class HashSet<E> {
         }
         int currentItr = 0;
         if (!isEmpty()) {
+            // loop for multiple lines based on the chain length
             for (int i = 0; i < maxChainLength; i++) {
                 result += "\n";
+                // loop for all the data and then if the current data does not match the chain length iteration, increment this
                 for (int j = 0; j < elementData.length; j++) {
                     HashEntry<E> current = elementData[j];
                     while (currentItr < i && current != null) {
@@ -46,43 +59,13 @@ public class HashSet<E> {
                         current = current.next;
                     }
                     currentItr = 0;
-                    if (current != null) {
-                        result += String.format("%-10s", current.data);
-                    } else {
-                        result += String.format("%-10s", " ");
-                    }
+                    // if the current isnt null, print the data, otherwise spaces.
+                    result += current != null ? String.format("%-10s", current.data) : String.format("%-10s", " ");
                 }
-
-
-//                String addon = "";
-//                while (current != null) {
-//                    if (!first) {
-//                        addon += ", ";
-//                    }
-//                    addon += current.data;
-//                    first = false;
-//                    current = current.next;
-//                    if (current == null) {
-//                        first = true;
-//                    }
-//                }
-//                if (addon != "") {
-//                    result += String.format("%-10s", addon);
-//                }
-
             }
         }
         return result;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     // Adds the given element to this set, if it was not already
     // contained in the set.
